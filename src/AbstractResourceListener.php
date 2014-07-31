@@ -165,7 +165,7 @@ abstract class AbstractResourceListener extends AbstractListenerAggregate
                 $id   = $event->getParam('id', null);
                 return $this->fetch($id);
             case 'fetchAll':
-                $queryParams = $event->getQueryParams() ?: array();
+                $queryParams = $event->getRequest()->getQuery() ?: array();
                 return $this->fetchAll($queryParams);
             case 'patch':
                 $id   = $event->getParam('id', null);
